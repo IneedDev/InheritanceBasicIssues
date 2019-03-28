@@ -1,8 +1,11 @@
 package InheritanceTaskExchangeOffice;
 
 import  java.lang.*;
+import java.util.Currency;
 
 public class ExchangeOffice{
+
+
 
     private Currancy[] curencies;
 
@@ -10,15 +13,16 @@ public class ExchangeOffice{
         this.curencies = new Currancy[7];
     }
 
+
+
     public void addCurrancy(Currancy currancy){
         for (int i=0; i<curencies.length;i++){
             if(curencies[i]==null){
                 curencies[i]=currancy;
-                //System.out.println("Currancy added");
+                //System.out.println("Currency added");
                 break;
             }
         }
-
     }
 
     public void showFounds(){
@@ -32,7 +36,7 @@ public class ExchangeOffice{
     public void exchange(double amount,CurrancyName from,CurrancyName to){
         int fromIndex=0;
         int toIndex=0;
-
+        double newValue;
         for (CurrancyName valueFrom : CurrancyName.values()) {
             if (valueFrom==from){
                 fromIndex=from.ordinal();
@@ -46,9 +50,20 @@ public class ExchangeOffice{
             }
         }
 
-        System.out.println("Za "+amount+"  "+CurrancyName.values()[fromIndex]+" you get "+
+        System.out.println("Za "+amount+"  " +
+                CurrancyName.values()[fromIndex]+
+                " you get "+
                 (CurrancyName.values()[fromIndex].getPrice()*amount)/CurrancyName.values()[toIndex].getPrice()
-                +to);
+                +"  "+to);
+        CurrancyName.values()[fromIndex].setInStock(CurrancyName.values()[fromIndex].getInStock());
+        System.out.println();
+    }
+
+    public void currencyInStockUpdate (Currancy currancy){
+        currancy.getCurrancyInStock();
+
+
 
     }
+
 }

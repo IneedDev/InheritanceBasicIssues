@@ -6,11 +6,12 @@ public class Currancy {
     private double currancyRatetoUsd;
     private double currancyInStock;
 
-    public Currancy(CurrancyName name, double currancyRatetoUsd, double currancyInStock) {
+    public Currancy(CurrancyName name, double currancyInStock) {
         this.name = name;
-        this.currancyRatetoUsd = currancyRatetoUsd;
         this.currancyInStock = currancyInStock;
     }
+
+
 
     public CurrancyName getName() {
         return name;
